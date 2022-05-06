@@ -1,4 +1,4 @@
-#include "Position.h"
+#include "Position.hpp"
 int Position::getX()
 {
 	return x;
@@ -21,7 +21,7 @@ Position Position::operator+ (const Position& rhs) const {
 	//IHR CODE
 	return Position(0,0);
 }
-//Vergleicht zwei Position Instanzen. Gibt true zurück, falls x und y beider Instanzen identisch sind, sonst false.
+//Vergleicht zwei Position Instanzen. Gibt true zurï¿½ck, falls x und y beider Instanzen identisch sind, sonst false.
 bool Position::operator==(const  Position& rhs) const
 {
 	//IHR CODE

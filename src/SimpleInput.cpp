@@ -1,5 +1,5 @@
-#include "SimpleInput.h"
-#include "Configuration.h"
+#include "SimpleInput.hpp"
+#include "Configuration.hpp"
 #include <windows.h>
 #include <iostream>
 //Microsoft Codetabelle

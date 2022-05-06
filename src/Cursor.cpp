@@ -1,4 +1,4 @@
-#include "Cursor.h"
+#include "Cursor.hpp"
 #include <iostream>
 
 //Positioniere Cursor an Position x,y

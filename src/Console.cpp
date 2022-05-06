@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Console.h"
-#include "Cursor.h"
+#include "Console.hpp"
+#include "Cursor.hpp"
 
 
 //Leere Bildschirm, verstecke Cursor, Position 0,0

@@ -17,12 +17,12 @@
 #define SPIELSTEIN_FREI 13
 
 
-#include "Position.h"
+#include "Position.hpp"
 #include <string>
 #include <vector>
-#include "Console.h"
-#include "Cursor.h"
-#include "Configuration.h"
+#include "Console.hpp"
+#include "Cursor.hpp"
+#include "Configuration.hpp"
 
 class Spielstein
 {

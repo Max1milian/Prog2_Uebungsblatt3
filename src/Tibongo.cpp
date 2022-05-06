@@ -1,8 +1,8 @@
 #include <iostream>
-#include "Spielstein.h"
-#include "Configuration.h"
-#include "Aufgabe.h"
-#include "Spiel.h"
+#include "Spielstein.hpp"
+#include "Configuration.hpp"
+#include "Aufgabe.hpp"
+#include "Spiel.hpp"
 
 
 

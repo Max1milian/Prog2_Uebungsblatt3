@@ -1,4 +1,4 @@
-#include "Spielstein.h"
+#include "Spielstein.hpp"
 
 void Spielstein::init() {
 	//IHR CODE / TEILVORLAGE
@@ -151,30 +151,30 @@ void Spielstein::flip()
 	//IHR CODE
 }
 
-//Gibt den felder Vektor der aktuellen Lage des Spielsteins zurück.
+//Gibt den felder Vektor der aktuellen Lage des Spielsteins zurï¿½ck.
 std::vector<Position>* Spielstein::getPositionen()
 {
 	//IHR CODE
 	return null;
 }
 
-//Durchläuft den felder Vektor des Spielsteins in aktueller Lage.
-//Gibt true zurück, falls die übergebene Position innerhalb des Spielsteines liegt.
-//Ansonsten wird false zurückgegeben.
+//Durchlï¿½uft den felder Vektor des Spielsteins in aktueller Lage.
+//Gibt true zurï¿½ck, falls die ï¿½bergebene Position innerhalb des Spielsteines liegt.
+//Ansonsten wird false zurï¿½ckgegeben.
 bool Spielstein::innerhalb(Position pos) const
 {
 	//IHR CODE
 	return true;
 }
 
-//Gibt war zurück, falls sich der aufrufende und der übergebene Spielstein sich in mindestens einer Position überlappen.
+//Gibt war zurï¿½ck, falls sich der aufrufende und der ï¿½bergebene Spielstein sich in mindestens einer Position ï¿½berlappen.
 bool Spielstein::ueberlapp(Spielstein& sp) 
 {
 	//IHR CODE
 	return true;
 }
 
-//Addiert zwei Spielsteine in ihrer aktuellen Lage und gibt die Summe als neuen Spielstein zurück.
+//Addiert zwei Spielsteine in ihrer aktuellen Lage und gibt die Summe als neuen Spielstein zurï¿½ck.
 Spielstein Spielstein::operator+ (const Spielstein& rhs) const
 {
 	Spielstein summe(SPIELSTEIN_FREI);

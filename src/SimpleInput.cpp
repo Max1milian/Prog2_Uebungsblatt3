@@ -1,6 +1,8 @@
 #include "SimpleInput.hpp"
 #include "Configuration.hpp"
+#ifdef _WIN32
 #include <windows.h>
+#endif
 #include <iostream>
 //Microsoft Codetabelle
 //https://msdn.microsoft.com/de-de/library/windows/desktop/dd375731(v=vs.85).aspx

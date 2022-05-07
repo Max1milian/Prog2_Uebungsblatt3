@@ -1,5 +1,5 @@
-#ifndef POSITION
-#define POSITION 
+#ifndef POSITION_HPP_
+#define POSITION_HPP 
 class Position
 {
 protected:

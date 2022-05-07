@@ -49,7 +49,7 @@ void Console::zeichne_linie(int x1, int y1, int x2, int y2, char c)
 
 	for (int i = 0; i <= schritte; i++)
 	{
-		Console::zeichne_punkt((int) ceil(x), (int) ceil(y), c);
+		//Console::zeichne_punkt((int) ceil(x), (int) ceil(y), c);
 		x = x + x_faktor * delta_x;
 		y = y + y_faktor * delta_y;
 	}

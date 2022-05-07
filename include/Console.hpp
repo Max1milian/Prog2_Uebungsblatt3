@@ -1,5 +1,5 @@
-#ifndef CONSOLE
-#define CONSOLE 
+#ifndef CONSOLE_HPP_
+#define CONSOLE_HPP_
 
 //https://ansi.gabebanks.net/
 //https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit

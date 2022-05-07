@@ -5,7 +5,7 @@ int Position::getX()
 }
 void Position::setX(int x)
 {
-	//IHR CODE
+	
 }
 int Position::getY()
 {

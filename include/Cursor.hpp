@@ -1,5 +1,5 @@
-#ifndef CURSOR
-#define CURSOR 
+#ifndef CURSOR_HPP_
+#define CURSOR_HPP_ 
 
 #define CURSOR_DUNKEL_GRAU	"\033[1;30m"
 #define CURSOR_WEISS		"\033[1;37m"

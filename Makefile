@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -Wall -Wextra -std=c++11 -pedantic -I include -c -o
 CXXFLAGS2 = -m64 -Og -g 
 
-all: Console.o Cursor.o Position.o SimpleInput.o Spielstein.o
+all: Console.o Cursor.o Position.o SimpleInput.o Spielstein.o Tibongo.o Tibongo
 
 Console.o: src/Console.cpp
 	$(CXX) $(CXXFLAGS) Console.o src/Console.cpp
@@ -19,8 +19,11 @@ SimpleInput.o: src/SimpleInput.cpp
 Spielstein.o: src/Spielstein.cpp
 	$(CXX) $(CXXFLAGS) Spielstein.o src/Spielstein.cpp
 
-Tibingo.o: src/Tibingo.cpp
-	$(CXX) $(CXXFLAGS) Tibingo.o src/Tibingo.cpp
+Tibongo.o: src/Tibongo.cpp
+	$(CXX) $(CXXFLAGS) Tibongo.o src/Tibongo.cpp
+
+Tibongo: Console.o Cursor.o Position.o SimpleInput.o Spielstein.o Tibongo.o 
+	$(CXX) $(CXXFLAGS2) Console.o Cursor.o Position.o SimpleInput.o Spielstein.o Tibongo.o -o Tibongo
 
 clean: 
 	rm *.o

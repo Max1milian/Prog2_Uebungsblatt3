@@ -1,5 +1,5 @@
-#ifndef SPIELSTEIN
-#define SPIELSTEIN 
+#ifndef SPIELSTEIN_HPP_
+#define SPIELSTEIN_HPP_
 
 #define SPIELSTEIN_Z2 0
 #define SPIELSTEIN_Z3 1
@@ -60,7 +60,4 @@ public:
 
 	Spielstein operator+ (const Spielstein& rhs) const;
 };
-
-
-
 #endif

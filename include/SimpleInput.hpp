@@ -1,5 +1,5 @@
-#ifndef SIMPLEINPUT_HPP
-#define SIMPLEINPUT_HPP
+#ifndef SIMPLEINPUT_HPP_
+#define SIMPLEINPUT_HPP_
 class SimpleInput
 {
 

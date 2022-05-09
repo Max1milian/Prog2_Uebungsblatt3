@@ -1,6 +1,6 @@
-#include "Console.hpp"
 #ifndef CONFIG_HPP_
 #define CONFIG_HPP_
+#include "Console.hpp"
 class CONFIGURATION
 {
 public:

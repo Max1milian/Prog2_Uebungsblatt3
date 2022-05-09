@@ -636,25 +636,56 @@ switch (typ)
 		break;
 	}
 }
+
 void Spielstein::zeichne()
 {
-	//IHR CODE
+	Cursor::setze_Farbe(farbe);
+	for (auto i = 0; i < felder[seite][orientierung].size(); i++)
+	{
+			Console::zeichne_punkt(felder[seite][orientierung].at(i).getX(),felder[seite][orientierung].at(i).getY(), CONFIGURATION::SPIELFELD_HINTERGRUND_SYMBOL);
+	}
+	Cursor::setze_Farbe(CURSOR_SCHWARZ);
+			
+	
 }
 void Spielstein::loesche()
 {
-	//IHR CODE
+	Cursor::setze_Farbe(CURSOR_SCHWARZ);
+	for (auto i = 0; i < felder[seite][orientierung].size(); i++)
+	{
+			Console::zeichne_punkt(felder[seite][orientierung].at(i).getX() + position.getX(),felder[seite][orientierung].at(i).getY() + position.getY(), CONFIGURATION::SPIELFELD_HINTERGRUND_SYMBOL);
+	}
+	
 }
 
 
 void Spielstein::bewegen(int richtung)
 {
-	//IHR CODE
+	switch (richtung)
+	{
+	case CONFIGURATION::SPIELSTEIN_BEWEGEN_HOCH:
+		position.setY(position.getY() - 1);
+		break;
+	case CONFIGURATION::SPIELSTEIN_BEWEGEN_RUNTER:
+		position.setY(position.getY() + 1);
+		break;
+	case CONFIGURATION::SPIELSTEIN_BEWEGEN_RECHTS:
+		position.setX(position.getX() - 1);
+		break;
+	case CONFIGURATION::SPIELSTEIN_BEWEGEN_LINKS:
+		position.setY(position.getY() + 1);
+		break;
+	default:
+		break;
+	}
 }
+
 //Inkrementiert das Attribut orientierung um 1, wobei stets Werte zwischen 0 und 3 angenommen werden.
 void Spielstein::rotation_rechts()
 {
-	//IHR CODE
+	
 }
+
 //Dekrementiert das Attribut orientierung um 1, wobei stets Werte zwischen 0 und 3 angenommen werden.
 void Spielstein::rotation_links()
 {
@@ -663,14 +694,27 @@ void Spielstein::rotation_links()
 //Inkrementiert das Attribut seite um 1, wobei stets Werte zwischen 0 und 1 angenommen werden.
 void Spielstein::flip()
 {
-	//IHR CODE
+	
+	switch (orientierung)
+	{
+	case 1:
+		orientierung = 0;
+		break;
+	case 0:
+		orientierung = 1;
+		break;
+	default:
+		orientierung = 0;
+		break;
+	}
+
+	
 }
 
 //Gibt den felder Vektor der aktuellen Lage des Spielsteins zur�ck.
 std::vector<Position>* Spielstein::getPositionen()
 {
-	//IHR CODE
-	return NULL;
+	return &felder[seite][orientierung];
 }
 
 //Durchl�uft den felder Vektor des Spielsteins in aktueller Lage.

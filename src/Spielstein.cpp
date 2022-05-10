@@ -769,21 +769,39 @@ std::vector<Position>* Spielstein::getPositionen()
 //Ansonsten wird false zur�ckgegeben.
 bool Spielstein::innerhalb(Position pos) const
 {
-	
-	
+	for (int i = 0; i < felder[seite][orientierung].size(); i++)
+	{
+		if (pos.operator==(felder[seite][orientierung].at(i) + position /*<--offset*/))
+		{
+			return true;
+			break;
+		}
+	}
+		return false;
 }
 
-//Gibt war zur�ck, falls sich der aufrufende und der �bergebene Spielstein sich in mindestens einer Position �berlappen.
+//Gibt wahr zurück, falls sich der aufrufende und der �bergebene Spielstein sich in mindestens einer Position �berlappen.
+//Schei? encoding
 bool Spielstein::ueberlapp(Spielstein& sp) 
 {
-	//IHR CODE
-	return true;
+	for (int i = 0; i < felder[seite][orientierung].size(); i++)
+	{
+		for (int j = 0; j < sp.felder[seite][orientierung].size(); j++)
+		{
+			if (felder[seite][orientierung].at(i) == sp.felder[seite][orientierung].at(j)) {
+			return true;
+		}
+		}
+	}
+	return false;
 }
 
 //Addiert zwei Spielsteine in ihrer aktuellen Lage und gibt die Summe als neuen Spielstein zur�ck.
 Spielstein Spielstein::operator+ (const Spielstein& rhs) const
 {
 	Spielstein summe(SPIELSTEIN_FREI);
-	//IHR CODE
+	summe.position = position + rhs.position;
+	summe.seite = seite + rhs.seite;
+	summe.orientierung = orientierung + rhs.orientierung;
 	return summe;
 }

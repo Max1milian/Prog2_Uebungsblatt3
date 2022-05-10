@@ -1,9 +1,9 @@
 #ifndef SPIEL
 #define SPIEL 
 
-#include "Aufgabe.h"
-#include "SimpleInput.h"
-#include "Configuration.h"
+#include "Aufgabe.hpp"
+#include "SimpleInput.hpp"
+#include "Configuration.hpp"
 #include <sstream>
 #include <iostream>
 

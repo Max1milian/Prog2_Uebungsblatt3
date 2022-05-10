@@ -640,9 +640,14 @@ switch (typ)
 void Spielstein::zeichne()
 {
 	Cursor::setze_Farbe(farbe);
-	for (auto i = 0; i < felder[seite][orientierung].size(); i++)
+	for (int i = 0; i < felder[seite][orientierung].size(); i++) //seite bestimmt ob gespiegelt oder nicht
+																 // orientierung bestimmt die rotation
 	{
-			Console::zeichne_punkt(felder[seite][orientierung].at(i).getX(),felder[seite][orientierung].at(i).getY(), CONFIGURATION::SPIELFELD_HINTERGRUND_SYMBOL);
+			//um den Punkt zu zeichen benötigen wir die X und Y koordinaten
+			//dazu rufen wir den Vektor an der jeweiligen Seite und orientierung auf
+			//wir brauchen jedoch nur eine bestimmte kette, deswegen das .at(i)
+			//da die Konsole bei (0,0) anfängt zu zeichen, müssen wir noch ein offset in form von position.getX()/.getX() draufrechnen
+			Console::zeichne_punkt(felder[seite][orientierung].at(i).getX() + position.getX(),felder[seite][orientierung].at(i).getY() + position.getY(), CONFIGURATION::SPIELFELD_HINTERGRUND_SYMBOL);
 	}
 	Cursor::setze_Farbe(CURSOR_SCHWARZ);
 			
@@ -650,6 +655,7 @@ void Spielstein::zeichne()
 }
 void Spielstein::loesche()
 {
+	//hier nehmen wir die gleiche Funktion wie bei zeichne(), jedoch mit der abänderung, dass wir das Feld auf Schwarz setzen
 	Cursor::setze_Farbe(CURSOR_SCHWARZ);
 	for (auto i = 0; i < felder[seite][orientierung].size(); i++)
 	{
@@ -664,16 +670,16 @@ void Spielstein::bewegen(int richtung)
 	switch (richtung)
 	{
 	case CONFIGURATION::SPIELSTEIN_BEWEGEN_HOCH:
-		position.setY(position.getY() - 1);
-		break;
+		position.setY(position.getY() - 1); //der 0,0 punk ist bei der konsole oben links, (vierter Quadrant)
+		break;								//deswegen müssen wir um den Spielstein nach oben zu bewegen eins abziehen
 	case CONFIGURATION::SPIELSTEIN_BEWEGEN_RUNTER:
 		position.setY(position.getY() + 1);
 		break;
 	case CONFIGURATION::SPIELSTEIN_BEWEGEN_RECHTS:
-		position.setX(position.getX() - 1);
+		position.setX(position.getX() + 1);
 		break;
 	case CONFIGURATION::SPIELSTEIN_BEWEGEN_LINKS:
-		position.setY(position.getY() + 1);
+		position.setY(position.getY() - 1);
 		break;
 	default:
 		break;
@@ -683,47 +689,88 @@ void Spielstein::bewegen(int richtung)
 //Inkrementiert das Attribut orientierung um 1, wobei stets Werte zwischen 0 und 3 angenommen werden.
 void Spielstein::rotation_rechts()
 {
+	switch (orientierung)
+	{
+	case 0:
+		++orientierung;
+		break;
 	
+	case 1:
+		++orientierung;
+		break;
+
+	case 2:
+		++orientierung;
+		break;
+
+	case 3:
+		++orientierung;
+		break;
+
+	default:
+		orientierung = 0;
+		break;
+	}
 }
 
 //Dekrementiert das Attribut orientierung um 1, wobei stets Werte zwischen 0 und 3 angenommen werden.
 void Spielstein::rotation_links()
 {
-	//IHR CODE
-}
-//Inkrementiert das Attribut seite um 1, wobei stets Werte zwischen 0 und 1 angenommen werden.
-void Spielstein::flip()
-{
 	
 	switch (orientierung)
 	{
-	case 1:
-		orientierung = 0;
-		break;
 	case 0:
-		orientierung = 1;
+		--orientierung;
 		break;
+	
+	case 1:
+		--orientierung;
+		break;
+
+	case 2:
+		--orientierung;
+		break;
+
+	case 3:
+		--orientierung;
+		break;
+		
 	default:
 		orientierung = 0;
 		break;
 	}
-
+}
+//Inkrementiert das Attribut seite um 1, wobei stets Werte zwischen 0 und 1 angenommen werden.
+void Spielstein::flip()
+{
+	switch (seite)
+	{
+	case 1:
+		seite = 0;
+		break;
+	case 0:
+		seite = 1;
+		break;
+	default:
+		seite = 0;
+		break;
+	}
 	
 }
 
 //Gibt den felder Vektor der aktuellen Lage des Spielsteins zur�ck.
 std::vector<Position>* Spielstein::getPositionen()
 {
-	return &felder[seite][orientierung];
+	return &felder[seite][orientierung]; 
 }
 
-//Durchl�uft den felder Vektor des Spielsteins in aktueller Lage.
+//Durchläuft den felder Vektor des Spielsteins in aktueller Lage.
 //Gibt true zur�ck, falls die �bergebene Position innerhalb des Spielsteines liegt.
 //Ansonsten wird false zur�ckgegeben.
 bool Spielstein::innerhalb(Position pos) const
 {
-	//IHR CODE
-	return true;
+	
+	
 }
 
 //Gibt war zur�ck, falls sich der aufrufende und der �bergebene Spielstein sich in mindestens einer Position �berlappen.

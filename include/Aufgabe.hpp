@@ -15,7 +15,7 @@ public:
     bool geloest();
     void zeichne();
     void loesche();
-    Aufgabe(Spielstein* stein1_ptr, stein2_ptr, stein3_ptr, loesung_ptr);
+    Aufgabe(Spielstein* stein1_ptr, Spielstein* stein2_ptr, Spielstein* stein3_ptr, Spielstein* loesung_ptr);
 };
 
 #endif

@@ -6,22 +6,29 @@ Aufgabe::Aufgabe(Spielstein* stein1_ptr, Spielstein* stein2_ptr, Spielstein* ste
 }
 
 Spielstein* Aufgabe::getSpielstein(unsigned int index){
-    try
+    if (!(index > sizeof(steine) / sizeof(steine[0])))
     {
-        return &steine.at(index);
+           return &steine[index];
     }
-    catch(const std::out_of_range& our)
-    {
-        std::cerr << our.what() << '\n';
-        return nullptr;
+
+    else {
+        return nullptr; //falls der Index größer ist als die Anzahl von Elementen im Array geben wir Nullptr zurück,
+                        //um Out ouf bounds fehler zu vermeiden
     }
-    
 
 }
 
 bool Aufgabe::geloest(){
-    for (auto i = 0; i < felder[seite][orientierung]; i++)
+    for (auto i = 0; i < 1; i++)
     {
+        for (auto j = 0; j < i; j++)
+        {
+            if (true)
+            {
+                return true;
+            }
+            
+        }
         
     }
     return false;

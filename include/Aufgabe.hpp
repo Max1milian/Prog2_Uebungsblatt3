@@ -2,11 +2,11 @@
 #define AUFGABE_HPP_
 
 #include <vector>
-#include "Spiel.hpp"
+#include "Spielstein.hpp"
 
 class Aufgabe
 {
-    friend Spiel;
+    friend class Spiel;
 private:
     std::vector<Spielstein*> steine;
 public:
@@ -15,7 +15,7 @@ public:
     bool geloest();
     void zeichne();
     void loesche();
-    Aufgabe(Spielstein* stein1_ptr, Spielstein* stein2_ptr, Spielstein* stein3_ptr, Spielstein* loesung_ptr);
+    Aufgabe(Spielstein* stein1_ptr, Spielstein* stein2_ptr, Spielstein* stein3_ptr, Spielstein* loesung_ptr){}
 };
 
 #endif

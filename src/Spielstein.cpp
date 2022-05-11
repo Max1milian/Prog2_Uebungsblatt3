@@ -408,12 +408,12 @@ switch (typ)
 		felder[0][0].push_back(Position(0, 0));//##__
 		felder[0][0].push_back(Position(1, 0));//##__
 		felder[0][0].push_back(Position(0, 1));
-		felder[0][0].push_back(Position(1, 0));
+		felder[0][0].push_back(Position(1, 1));
 
 		felder[0][1].push_back(Position(0, 0));//##__
 		felder[0][1].push_back(Position(1, 0));//##__
 		felder[0][1].push_back(Position(0, 1));
-		felder[0][1].push_back(Position(1, 0));
+		felder[0][1].push_back(Position(1, 1));
 
 		felder[0][2].push_back(Position(0, 0));//##__
 		felder[0][2].push_back(Position(1, 0));//##__
@@ -432,6 +432,11 @@ switch (typ)
 
 
 
+		felder[1][0].push_back(Position(0, 0));//##__
+		felder[1][0].push_back(Position(1, 0));//##__
+		felder[1][0].push_back(Position(0, 1));
+		felder[1][0].push_back(Position(1, 1));
+
 		felder[1][1].push_back(Position(0, 0));//##__
 		felder[1][1].push_back(Position(1, 0));//##__
 		felder[1][1].push_back(Position(0, 1));
@@ -446,11 +451,6 @@ switch (typ)
 		felder[1][3].push_back(Position(1, 0));//##__
 		felder[1][3].push_back(Position(0, 1));
 		felder[1][3].push_back(Position(1, 1));
-
-		felder[1][4].push_back(Position(0, 0));//##__
-		felder[1][4].push_back(Position(1, 0));//##__
-		felder[1][4].push_back(Position(0, 1));
-		felder[1][4].push_back(Position(1, 1));
 
 		break;
 	}
@@ -488,31 +488,31 @@ switch (typ)
 		
 
 
-		felder[1][1].push_back(Position(1, 0));//#_
-		felder[1][1].push_back(Position(0, 1));//##__
-		felder[1][1].push_back(Position(1, 1));//##__
-		felder[1][1].push_back(Position(0, 2));
-		felder[1][1].push_back(Position(1, 2));
+		felder[1][0].push_back(Position(1, 0));//#_
+		felder[1][0].push_back(Position(0, 1));//##__
+		felder[1][0].push_back(Position(1, 1));//##__
+		felder[1][0].push_back(Position(0, 2));
+		felder[1][0].push_back(Position(1, 2));
+
+		felder[1][1].push_back(Position(0, 0));//##__
+		felder[1][1].push_back(Position(1, 0));//###_
+		felder[1][1].push_back(Position(0, 1));
+		felder[1][1].push_back(Position(1, 1));
+		felder[1][1].push_back(Position(2, 1));
+
 
 		felder[1][2].push_back(Position(0, 0));//##__
-		felder[1][2].push_back(Position(1, 0));//###_
-		felder[1][2].push_back(Position(0, 1));
+		felder[1][2].push_back(Position(1, 0));//##__
+		felder[1][2].push_back(Position(0, 1));//#_
 		felder[1][2].push_back(Position(1, 1));
-		felder[1][2].push_back(Position(2, 1));
+		felder[1][2].push_back(Position(1, 2));
 
 
-		felder[1][3].push_back(Position(0, 0));//##__
-		felder[1][3].push_back(Position(1, 0));//##__
-		felder[1][3].push_back(Position(0, 1));//#_
+		felder[1][3].push_back(Position(0, 0));//###__
+		felder[1][3].push_back(Position(1, 0));//##_
+		felder[1][3].push_back(Position(2, 0));
 		felder[1][3].push_back(Position(1, 1));
-		felder[1][3].push_back(Position(1, 2));
-
-
-		felder[1][4].push_back(Position(0, 0));//###__
-		felder[1][4].push_back(Position(1, 0));//##_
-		felder[1][4].push_back(Position(2, 0));
-		felder[1][4].push_back(Position(1, 1));
-		felder[1][4].push_back(Position(2, 1));
+		felder[1][3].push_back(Position(2, 1));
 
 		break;
 	}
@@ -558,10 +558,10 @@ switch (typ)
 		felder[1][2].push_back(Position(1, 1));
 		felder[1][2].push_back(Position(2, 0));
 
-		felder[1][2].push_back(Position(1, 0));//#_
-		felder[1][2].push_back(Position(0, 1));//##__
-		felder[1][2].push_back(Position(1, 1));//#_
-		felder[1][2].push_back(Position(1, 2));
+		felder[1][3].push_back(Position(1, 0));//#_
+		felder[1][3].push_back(Position(0, 1));//##__
+		felder[1][3].push_back(Position(1, 1));//#_
+		felder[1][3].push_back(Position(1, 2));
 		break;
 	}
 	case SPIELSTEIN_TPLUS:  //T stein mit eins extra
@@ -580,43 +580,43 @@ switch (typ)
 		felder[0][1].push_back(Position(0, 2));//#
 		felder[0][1].push_back(Position(0, 3));
 
-		felder[0][0].push_back(Position(0, 0));//####_
-		felder[0][0].push_back(Position(1, 0));//_#_
-		felder[0][0].push_back(Position(2, 0));
-		felder[0][0].push_back(Position(3, 0));
-		felder[0][0].push_back(Position(2, 1));
+		felder[0][2].push_back(Position(0, 0));//####_
+		felder[0][2].push_back(Position(1, 0));//_#_
+		felder[0][2].push_back(Position(2, 0));
+		felder[0][2].push_back(Position(3, 0));
+		felder[0][2].push_back(Position(2, 1));
 
-		felder[0][1].push_back(Position(1, 0));//#_
-		felder[0][1].push_back(Position(1, 1));//#_
-		felder[0][1].push_back(Position(0, 2));//##__
-		felder[0][1].push_back(Position(1, 2));//#_
-		felder[0][1].push_back(Position(1, 3));
+		felder[0][3].push_back(Position(1, 0));//#_
+		felder[0][3].push_back(Position(1, 1));//#_
+		felder[0][3].push_back(Position(0, 2));//##__
+		felder[0][3].push_back(Position(1, 2));//#_
+		felder[0][3].push_back(Position(1, 3));
 
 
 
-		felder[0][0].push_back(Position(2, 0));//_#
-		felder[0][0].push_back(Position(0, 1));//####
-		felder[0][0].push_back(Position(1, 1));
-		felder[0][0].push_back(Position(2, 1));
-		felder[0][0].push_back(Position(3, 1));
+		felder[1][0].push_back(Position(2, 0));//_#
+		felder[1][0].push_back(Position(0, 1));//####
+		felder[1][0].push_back(Position(1, 1));
+		felder[1][0].push_back(Position(2, 1));
+		felder[1][0].push_back(Position(3, 1));
 
-		felder[0][1].push_back(Position(0, 0));//#_
-		felder[0][1].push_back(Position(0, 1));//#_
-		felder[0][1].push_back(Position(0, 2));//##
-		felder[0][1].push_back(Position(1, 2));//#
-		felder[0][1].push_back(Position(0, 3));
+		felder[1][1].push_back(Position(0, 0));//#_
+		felder[1][1].push_back(Position(0, 1));//#_
+		felder[1][1].push_back(Position(0, 2));//##
+		felder[1][1].push_back(Position(1, 2));//#
+		felder[1][1].push_back(Position(0, 3));
 
-		felder[0][0].push_back(Position(0, 0));//####_
-		felder[0][0].push_back(Position(1, 0));//#__
-		felder[0][0].push_back(Position(2, 0));
-		felder[0][0].push_back(Position(3, 0));
-		felder[0][0].push_back(Position(1, 1));
+		felder[1][2].push_back(Position(0, 0));//####_
+		felder[1][2].push_back(Position(1, 0));//#__
+		felder[1][2].push_back(Position(2, 0));
+		felder[1][2].push_back(Position(3, 0));
+		felder[1][2].push_back(Position(1, 1));
 
-		felder[0][1].push_back(Position(1, 0));//#_
-		felder[0][1].push_back(Position(0, 1));//##__
-		felder[0][1].push_back(Position(1, 1));//#_
-		felder[0][1].push_back(Position(1, 2));//#_
-		felder[0][1].push_back(Position(1, 3));
+		felder[1][3].push_back(Position(1, 0));//#_
+		felder[1][3].push_back(Position(0, 1));//##__
+		felder[1][3].push_back(Position(1, 1));//#_
+		felder[1][3].push_back(Position(1, 2));//#_
+		felder[1][3].push_back(Position(1, 3));
 		
 		break;
 	}
@@ -704,7 +704,7 @@ void Spielstein::rotation_rechts()
 		break;
 
 	case 3:
-		++orientierung;
+		orientierung = 3;
 		break;
 
 	default:
@@ -720,7 +720,7 @@ void Spielstein::rotation_links()
 	switch (orientierung)
 	{
 	case 0:
-		--orientierung;
+		orientierung = 0;
 		break;
 	
 	case 1:

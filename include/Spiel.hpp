@@ -1,26 +1,22 @@
-#ifndef SPIEL
-#define SPIEL 
+#ifndef SPIEL_HPP_
+#define SPIEL_HPP_
 
 #include "Aufgabe.hpp"
 #include "SimpleInput.hpp"
 #include "Configuration.hpp"
+#include "Cursor.hpp"
+#include "Console.hpp"
 #include <sstream>
 #include <iostream>
 
 class Spiel
 {
 public:
-	Spiel(Aufgabe* aufgabe)
-	{
-		aktuelleAufgabe = *aufgabe;
-		init();
-		spielSchleife();
-	}
-	void init();
-
-private:
-	Aufgabe aktuelleAufgabe;
 	int aktiverSpielstein = 0;
+	Spiel();
+	~Spiel();
+	void init();
+	void kleinspiel(Aufgabe* aufgabe);
 
 	void ausgabeLogo();
 	void ausgabeRahmen();
@@ -32,5 +28,8 @@ private:
 	void spielSchleife();
 	void spielzug();
 	bool eingabeErlaubt(char input);
+
+private:
+	Aufgabe aktuelleAufgabe;
 };
 #endif

@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -Wall -Wextra -std=c++11 -pedantic -I include -c -o
+CXXFLAGS = -Wall -Wextra -pedantic -std=c++11 -I include -c -o
 CXXFLAGS2 = -m64 -Og -g 
 
 all: Console.o Cursor.o Position.o SimpleInput.o Spielstein.o Tibongo.o Aufgabe.o Tibongo
@@ -22,11 +22,14 @@ Spielstein.o: src/Spielstein.cpp
 Aufgabe.o: src/Aufgabe.cpp
 	$(CXX) $(CXXFLAGS) Aufgabe.o src/Aufgabe.cpp
 
+Spiel.o: src/Spiel.cpp
+	$(CXX) $(CXXFLAGS) Spiel.o src/Spiel.cpp
+
 Tibongo.o: src/Tibongo.cpp
 	$(CXX) $(CXXFLAGS) Tibongo.o src/Tibongo.cpp
 
-Tibongo: Console.o Cursor.o Position.o SimpleInput.o Spielstein.o Tibongo.o 
-	$(CXX) $(CXXFLAGS2) Console.o Cursor.o Position.o SimpleInput.o Spielstein.o Tibongo.o -o Tibongo
+Tibongo: Console.o Cursor.o Position.o SimpleInput.o Spielstein.o Tibongo.o Spiel.o
+	$(CXX) $(CXXFLAGS2) Console.o Cursor.o Position.o SimpleInput.o Spielstein.o Tibongo.o Spiel.o -o Tibongo
 
 clean: 
 	rm *.o

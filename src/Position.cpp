@@ -30,7 +30,7 @@ std::string Position::to_string(){
 Position Position::operator+ (const Position& rhs) const {
 	//hier krieren wie eine new_pos auf dem Stack um die additionen durchführen zu können.
 	//die intention ist, dass wenn wir die zwei klassen miteinander addieren der Compiler weis was miteinander addiert werden muss
-	Position new_pos((0,0));
+	Position new_pos((0));
 	new_pos.x = x + rhs.x; //hier ist x vom ersten Operanden und rhs vom zweiten operanden
 	new_pos.y = y + rhs.y; //gleiches für y
 	return new_pos;

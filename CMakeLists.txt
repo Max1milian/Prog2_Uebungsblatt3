@@ -5,5 +5,5 @@ project(Uebungsblatt3
         )
 
 set(CMAKE_CXX_STANDARD 11)
-add_executable(${PROJECT_NAME} src/Console.cpp src/Cursor.cpp src/Position.cpp src/SimpleInput.cpp src/Spielstein.cpp src/Tibongo.cpp)
+add_executable(${PROJECT_NAME} src/Console.cpp src/Cursor.cpp src/Position.cpp src/SimpleInput.cpp src/Spielstein.cpp src/Tibongo.cpp src/Spiel.cpp)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)

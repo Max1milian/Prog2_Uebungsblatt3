@@ -1,14 +1,10 @@
-#include "../include/Aufgabe.hpp"
-#include "Spielstein.hpp"
-
-Aufgabe::Aufgabe(Spielstein* stein1_ptr, Spielstein* stein2_ptr, Spielstein* stein3_ptr, Spielstein* loesung_ptr){
-
-}
+#include "Aufgabe.hpp"
+//#include "Spielstein.hpp"
 
 Spielstein* Aufgabe::getSpielstein(unsigned int index){
     if (!(index > sizeof(steine) / sizeof(steine[0])))
     {
-           return &steine[index];
+           return steine.at(index);
     }
 
     else {
@@ -23,22 +19,29 @@ bool Aufgabe::geloest(){
     {
         for (auto j = 0; j < i; j++)
         {
-            if (true)
+            //ueberprueft zuerst vom Stein die Position und wenn das ergebnis gleich dem loesungsptr ist gibt er true zurück
+            if (!(steine.at(i)->position + steine.at(i)->getPositionen()->at(j) == (loesung_ptr->position + loesung_ptr->getPositionen()->at(j))))//lol
             {
-                return true;
-            }
-            
+                return false;
+            }   
         }
-        
     }
-    return false;
+    return true;
 }
 
 void Aufgabe::zeichne(){
-
+     for (int i = 0; i < steine.size(); i++)
+     {
+        steine.at(i)->zeichne();
+     }
+     
 }
 
 void Aufgabe::loesche(){
-
+    for (int i = 0; i < steine.size(); i++)
+    {
+        steine.at(i)->loesche();
+    }
+    
 
 }

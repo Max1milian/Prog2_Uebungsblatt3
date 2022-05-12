@@ -9,18 +9,18 @@ Spielstein* Aufgabe::getSpielstein(unsigned int index){
 
     else {
         return nullptr; //falls der Index größer ist als die Anzahl von Elementen im Array geben wir Nullptr zurück,
-                        //um Out ouf bounds fehler zu vermeiden
+                        //um bad alloc zu vermeiden
     }
 
 }
 
 bool Aufgabe::geloest(){
-    for (auto i = 0; i < 1; i++)
+    for (auto i = 0; i < steine.size(); i++)
     {
-        for (auto j = 0; j < i; j++)
+        for (auto j = 0; j < steine[j]->getPositionen()->size(); j++)
         {
             //ueberprueft zuerst vom Stein die Position und wenn das ergebnis gleich dem loesungsptr ist gibt er true zurück
-            if (!(steine.at(i)->position + steine.at(i)->getPositionen()->at(j) == (loesung_ptr->position + loesung_ptr->getPositionen()->at(j))))//lol
+            if (!(steine.at(i)->position + steine.at(i)->getPositionen()->at(j) == (loesung_ptr->position + loesung_ptr->getPositionen()->at(j))))//
             {
                 return false;
             }   

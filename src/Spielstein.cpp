@@ -647,7 +647,8 @@ void Spielstein::zeichne()
 			//dazu rufen wir den Vektor an der jeweiligen Seite und orientierung auf
 			//wir brauchen jedoch nur eine bestimmte kette, deswegen das .at(i)
 			//da die Konsole bei (0,0) anfängt zu zeichen, müssen wir noch ein offset in form von position.getX()/.getX() draufrechnen
-			Console::zeichne_punkt(felder[seite][orientierung].at(i).getX() + position.getX(),felder[seite][orientierung].at(i).getY() + position.getY(), CONFIGURATION::SPIELFELD_HINTERGRUND_SYMBOL);
+			//gezeichnet wird der aktuelle punkt
+			Console::zeichne_punkt(felder[seite][orientierung].at(i).getX() + position.getX(),felder[seite][orientierung].at(i).getY() + position.getY(), CONFIGURATION::SPIELFELD_HINTERGRUND_SYMBOL); 
 	}
 	Cursor::setze_Farbe(CURSOR_SCHWARZ);
 			
@@ -704,9 +705,9 @@ void Spielstein::rotation_rechts()
 		break;
 
 	case 3:
-		orientierung = 3;
+		orientierung = 0;
 		break;
-
+	//default lassen wird drinnen um undefined behaviour vorzubeugen falls wir eine andere eingabe bekommen
 	default:
 		orientierung = 0;
 		break;
@@ -720,7 +721,7 @@ void Spielstein::rotation_links()
 	switch (orientierung)
 	{
 	case 0:
-		orientierung = 0;
+		orientierung = 3;
 		break;
 	
 	case 1:
@@ -749,7 +750,7 @@ void Spielstein::flip()
 		seite = 0;
 		break;
 	case 0:
-		seite = 1;
+		seite = 1; //alternativ könnte man auch ++seite schreiben
 		break;
 	default:
 		seite = 0;
@@ -771,24 +772,24 @@ bool Spielstein::innerhalb(Position pos) const
 {
 	for (int i = 0; i < felder[seite][orientierung].size(); i++)
 	{
-		if (pos.operator==(felder[seite][orientierung].at(i) + position /*<--offset*/))
+		//hier überprüfen wir ob sich der positionsoperator im feld befindet
+		//wir brauchen das offset, da das Spielfeld verschoben ist.
+		if (pos.operator==(felder[seite][orientierung].at(i) + position /*<--offset*/)) 
 		{
 			return true;
-			break;
 		}
 	}
 		return false;
 }
 
 //Gibt wahr zurück, falls sich der aufrufende und der �bergebene Spielstein sich in mindestens einer Position �berlappen.
-//Schei? encoding
 bool Spielstein::ueberlapp(Spielstein& sp) 
 {
 	for (int i = 0; i < felder[seite][orientierung].size(); i++)
 	{
 		for (int j = 0; j < sp.felder[seite][orientierung].size(); j++)
 		{
-			if (felder[seite][orientierung].at(i) == sp.felder[seite][orientierung].at(j)) {
+			if (felder[seite][orientierung].at(i) == sp.felder[seite][orientierung].at(j)) { //überprüft ob sich einträge im felder und spielstein vektor überlappen
 			return true;
 		}
 		}
@@ -799,8 +800,8 @@ bool Spielstein::ueberlapp(Spielstein& sp)
 //Addiert zwei Spielsteine in ihrer aktuellen Lage und gibt die Summe als neuen Spielstein zur�ck.
 Spielstein Spielstein::operator+ (const Spielstein& rhs) const
 {
-	Spielstein summe(SPIELSTEIN_FREI);
-	summe.position = position + rhs.position;
+	Spielstein summe(SPIELSTEIN_FREI); //erzeugt einen neuen Spielstein auf dem stack
+	summe.position = position + rhs.position; //addiert 
 	summe.seite = seite + rhs.seite;
 	summe.orientierung = orientierung + rhs.orientierung;
 	return summe;

@@ -13,7 +13,7 @@ class Spiel
 {
 public:
 	int aktiverSpielstein = 0;
-	Spiel();
+	Spiel(Aufgabe aufgabe);
 	~Spiel();
 	void init();
 	void kleinspiel(Aufgabe* aufgabe);
@@ -32,4 +32,4 @@ public:
 private:
 	Aufgabe aktuelleAufgabe;
 };
-#endif
+#endif;

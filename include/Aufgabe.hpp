@@ -15,7 +15,13 @@ public:
     bool geloest();
     void zeichne();
     void loesche();
-    Aufgabe(Spielstein* stein1_ptr, Spielstein* stein2_ptr, Spielstein* stein3_ptr, Spielstein* loesung_ptr){}
+    //übergibt die steine des Konstruktors in den Vektor, damit wir sie auf dem Spielfeld platzieren können
+    Aufgabe(Spielstein* stein1_ptr, Spielstein* stein2_ptr, Spielstein* stein3_ptr, Spielstein* loesung_ptr){
+        steine.push_back(stein1_ptr);
+        steine.push_back(stein2_ptr);
+        steine.push_back(stein3_ptr);
+        this->loesung_ptr = loesung_ptr;
+    }
 };
 
 #endif

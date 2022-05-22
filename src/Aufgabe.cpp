@@ -2,14 +2,13 @@
 //#include "Spielstein.hpp"
 
 Spielstein* Aufgabe::getSpielstein(unsigned int index){
-    if (!(index > sizeof(steine) / sizeof(steine[0])))
+    if (index < sizeof(steine) / sizeof(steine[0]))
     {
            return steine.at(index);
     }
 
     else {
-        return nullptr; //falls der Index größer ist als die Anzahl von Elementen im Array geben wir Nullptr zurück,
-                        //um bad alloc zu vermeiden
+        return nullptr;
     }
 
 }

@@ -774,7 +774,7 @@ bool Spielstein::innerhalb(Position pos) const
 	{
 		//hier überprüfen wir ob sich der positionsoperator im feld befindet
 		//wir brauchen das offset, da das Spielfeld verschoben ist.
-		if (pos.operator==(felder[seite][orientierung].at(i) + position /*<--offset*/)) 
+		if (pos==(felder[seite][orientierung].at(i) + position /*<--offset*/)) 
 		{
 			return true;
 		}

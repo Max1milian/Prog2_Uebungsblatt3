@@ -16,10 +16,6 @@ public:
 	std::string to_string();
 
 	//
-	Position(){
-		this->x = 0;
-		this->y = 0;
-	}
 	Position(int x = 0, int y = 0) : x(x), y(y) {} //:x(x), y(y) ist die kurzschreibweise von this.x = x; und this.y = y;
 	~Position() {};
 };

@@ -10,8 +10,7 @@ void testSpielsteine()
 {
 	for (int i = 0; i <= 11; i++)
 	{
-		std::unique_ptr<Spielstein>stein_ptr (new Spielstein(i));//hab das mit unique_ptr umgeschrieben um die chance auf memory leak zu verkleinern
-																 //und weil kein delete vorhanden ist
+		std::unique_ptr<Spielstein>stein_ptr (new Spielstein(i));//hab das nochmal mit unique_ptr geschrieben weil kein delete vorhanden
 		//Spielstein* stein_ptr = new Spielstein(i);
 		stein_ptr->position.setX(i * 6);
 		stein_ptr->position.setY(15);
